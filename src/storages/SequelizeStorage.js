@@ -87,7 +87,7 @@ export default class SequelizeStorage extends Storage {
         timestamps: this.timestamps,
         charset: 'utf8',
         collate: 'utf8_unicode_ci',
-      }
+      },
     );
   }
 
@@ -145,7 +145,7 @@ export default class SequelizeStorage extends Storage {
 
     return this._model()
       .sync()
-      .then((Model) => Model.findAll({ order: [ [ self.columnName, 'ASC' ] ] }))
+      .then((Model) => Model.findAll({ order: [[self.columnName, 'ASC']] }))
       .then((migrations) => migrations.map((migration) => migration[self.columnName]));
   }
 

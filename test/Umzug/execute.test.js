@@ -159,7 +159,7 @@ describe('migrations.wrap', () => {
       '  },',
       '  down: function () {}',
       '};',
-    ].join('\n')
+    ].join('\n'),
     );
   });
 
@@ -184,37 +184,6 @@ describe('migrations.wrap', () => {
       method: 'up',
     }).then(() => {
       expect(+new Date() - start).to.be.greaterThan(200);
-    });
-  });
-});
-
-describe('coffee-script support', () => {
-  beforeEach(() => {
-    helper.clearTmp();
-    require('fs').writeFileSync(join(__dirname, '/../tmp/123-coffee-migration.coffee'), [
-      '\'use strict\'',
-      '',
-      'module.exports =',
-      '  up: () -> Promise.resolve()',
-      '  down: () -> Promise.resolve()',
-    ].join('\n')
-    );
-  });
-
-  it('runs the migration', () => {
-    const umzug = new Umzug({
-      migrations: {
-        path: join(__dirname, '/../tmp/'),
-        pattern: /\.coffee$/,
-      },
-      storageOptions: {
-        path: join(__dirname, '/../tmp/umzug.json'),
-      },
-    });
-
-    return umzug.execute({
-      migrations: ['123-coffee-migration'],
-      method: 'up',
     });
   });
 });
@@ -281,7 +250,7 @@ describe('upName / downName', () => {
       '  myUp: function () {},',
       '  myDown: function () {}',
       '};',
-    ].join('\n')
+    ].join('\n'),
     );
     this.migration = require('../tmp/123-custom-up-down-names-migration.js');
     this.upStub = sinon.stub(this.migration, 'myUp').callsFake(Bluebird.resolve);

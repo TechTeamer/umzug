@@ -34,10 +34,10 @@ describe('sequelize', () => {
     it('accepts a "sequelize" option and creates a model', function () {
       const storage = new Storage({ sequelize: this.sequelize });
       expect(storage.model).to.equal(
-        this.sequelize.model('SequelizeMeta')
+        this.sequelize.model('SequelizeMeta'),
       );
       expect(storage.model.getTableName()).to.equal(
-        'SequelizeMeta'
+        'SequelizeMeta',
       );
       return storage.model.sync()
         .then((model) => model.describe())
@@ -58,10 +58,10 @@ describe('sequelize', () => {
         modelName: 'CustomModel',
       });
       expect(storage.model).to.equal(
-        this.sequelize.model('CustomModel')
+        this.sequelize.model('CustomModel'),
       );
       expect(storage.model.getTableName()).to.equal(
-        'CustomModels'
+        'CustomModels',
       );
     });
 
@@ -71,10 +71,10 @@ describe('sequelize', () => {
         tableName: 'CustomTable',
       });
       expect(storage.model).to.equal(
-        this.sequelize.model('SequelizeMeta')
+        this.sequelize.model('SequelizeMeta'),
       );
       expect(storage.model.getTableName()).to.equal(
-        'CustomTable'
+        'CustomTable',
       );
     });
 

@@ -45,7 +45,7 @@ describe('constructor', () => {
     expect(() => {
       new Umzug({ storage: 'nomnom' });
     }).to.throw(
-      'Unable to resolve the storage: nomnom, Error: Cannot find module \'nomnom\''
+      'Unable to resolve the storage: nomnom, Error: Cannot find module \'nomnom\'',
     );
   });
 

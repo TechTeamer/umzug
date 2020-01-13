@@ -1,12 +1,10 @@
-sudo: false
+dist: xenial
 
 language: node_js
 
 node_js:
-  - '6'
-  - '8'
-  - '10'
-  - '11'
+  - 10
+  - 12
 
 cache: npm
 

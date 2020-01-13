@@ -18,7 +18,7 @@ describe('JSON', () => {
     it('sets the default storage path', () => {
       const storage = new Storage();
       expect(storage.path).to.equal(
-        path.normalize(process.cwd() + '/umzug.json')
+        path.normalize(process.cwd() + '/umzug.json'),
       );
     });
   });
@@ -59,12 +59,12 @@ describe('JSON', () => {
       return this.storage.logMigration('foo.js').then(() => this.storage.logMigration('bar.js'))
         .then(read)
         .then((data) => {
-          expect(data).to.eql([ 'foo.js', 'bar.js' ]);
+          expect(data).to.eql(['foo.js', 'bar.js']);
         })
         .then(() => this.storage.unlogMigration('foo.js'))
         .then(read)
         .then((data) => {
-          expect(data).to.eql([ 'bar.js' ]);
+          expect(data).to.eql(['bar.js']);
         });
     });
   });
@@ -84,7 +84,7 @@ describe('JSON', () => {
 
     it('returns executed migrations', function () {
       return this.storage.logMigration('foo.js').then(() => this.storage.executed()).then((data) => {
-        expect(data).to.eql([ 'foo.js' ]);
+        expect(data).to.eql(['foo.js']);
       });
     });
   });

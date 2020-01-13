@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v3.0.0 - 2020-01-13
+- removed CoffeScript support
+- removed babel-runtime dependency
+- removed node 6, 8 support, only node 10+ is supported
+- standardjs upgrade to v14
+
 ## v2.2.0 - 2018-11-18
 
 ### Added

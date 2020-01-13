@@ -253,7 +253,7 @@ module.exports = class Umzug extends EventEmitter {
    */
   _run (method, options, rest) {
     if (typeof options === 'string') {
-      return this._run(method, [ options ]);
+      return this._run(method, [options]);
     } else if (Array.isArray(options)) {
       return Bluebird.resolve(options).bind(this)
         .map(function (migration) {
@@ -399,7 +399,7 @@ module.exports = class Umzug extends EventEmitter {
         'old syntax: new Storage({ storageOptions: { ... } })',
         'new syntax: new Storage({ ... })',
         'where ... represents the same storageOptions passed to Umzug constructor.',
-        'For more information: https://github.com/sequelize/umzug/pull/137'
+        'For more information: https://github.com/sequelize/umzug/pull/137',
       );
       storage = new StorageClass(this.options);
     }
@@ -449,7 +449,7 @@ module.exports = class Umzug extends EventEmitter {
       })
       .reduce((a, b) => a.concat(b), []) // flatten the result to an array
       .filter((file) =>
-        file instanceof Migration // only care about Migration
+        file instanceof Migration, // only care about Migration
       )
       .then((migrations) => {
         if (isRoot) { // only sort if its root
